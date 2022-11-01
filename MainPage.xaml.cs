@@ -96,7 +96,8 @@ public partial class MainPage : ContentPage
     /// </summary>
     private void CelebrateVictory(Player victor)
     {
-        //MessageBox.Show(Application.Current.MainWindow, String.Format("Congratulations, {0}, you're the big winner today", victor.ToString()));
+        //MessageBox.Show(Application.Current.MainPage, String.Format("Congratulations, {0}, you're the big winner today", victor.ToString()));
+        DisplayAlert("Sweeto Buritto", String.Format("Congratulations, {0}, you're the big winner today", victor.ToString()), "Cool");
         XScoreLBL.Text = String.Format("X's Score: {0}", ticTacToe.XScore);
         OScoreLBL.Text = String.Format("O's Score: {0}", ticTacToe.OScore);
 
