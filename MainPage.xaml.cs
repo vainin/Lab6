@@ -108,6 +108,7 @@ public partial class MainPage : ContentPage
     /// </summary>
     private void ResetGame()//object sender, EventArgs e)
     {
+        ticTacToe.ResetGame();
         Tile00.Text = "";
         Tile01.Text = "";
         Tile02.Text = "";
