@@ -1,15 +1,16 @@
-﻿namespace Lab6Starter;
+namespace Lab6Starter;
 /**
  * 
  * Name: Benjamin Wastart and Alex Rodriguez
  * Date: Nov 7, 2022
  * Description: A single page application of TicTacToe.
  * Bugs:
- * Reflection: The most important bit ...
+ * Reflection:
  * 
  */
 
 using Lab6Starter;
+using System.Collections;
 
 
 /// <summary>
@@ -19,6 +20,7 @@ public partial class MainPage : ContentPage
 {
     TicTacToeGame ticTacToe; // model class
     Button[,] grid;          // stores the buttons
+    ArrayList myColors;     //holds color options
 
 
     /// <summary>
@@ -29,6 +31,7 @@ public partial class MainPage : ContentPage
         InitializeComponent();
         ticTacToe = new TicTacToeGame();
         grid = new Button[TicTacToeGame.GRID_SIZE, TicTacToeGame.GRID_SIZE] { { Tile00, Tile01, Tile02 }, { Tile10, Tile11, Tile12 }, { Tile20, Tile21, Tile22 } };
+        initColors();
     }
 
     /// <summary>
@@ -125,6 +128,86 @@ public partial class MainPage : ContentPage
     private void HandleResetClick(object sender, EventArgs e)
     {
         ResetGame();
+        RandomColor();
+    }
+
+    private void RandomColor()
+    {
+        Random rnd = new Random();
+        int pattern = rnd.Next(0, 10);
+        
+        if (pattern > 8)
+        {
+            int color = rnd.Next(0, myColors.Count);  // creates a number between 0 and count
+
+            Tile00.BackgroundColor = (Color)myColors[color];
+            Tile01.BackgroundColor = (Color)myColors[color];
+            Tile02.BackgroundColor = (Color)myColors[color];
+            Tile10.BackgroundColor = (Color)myColors[color];
+            Tile11.BackgroundColor = (Color)myColors[color];
+            Tile12.BackgroundColor = (Color)myColors[color];
+            Tile20.BackgroundColor = (Color)myColors[color];
+            Tile21.BackgroundColor = (Color)myColors[color];
+            Tile22.BackgroundColor = (Color)myColors[color];
+        }
+        else if(pattern > 6)
+        {
+            int color = rnd.Next(0, myColors.Count);  // creates a number between 0 and count
+            int color2 = rnd.Next(0, myColors.Count);
+            Tile00.BackgroundColor = (Color)myColors[color2];
+            Tile01.BackgroundColor = (Color)myColors[color2];
+            Tile02.BackgroundColor = (Color)myColors[color2];
+            Tile10.BackgroundColor = (Color)myColors[color];
+            Tile11.BackgroundColor = (Color)myColors[color];
+            Tile12.BackgroundColor = (Color)myColors[color];
+            Tile20.BackgroundColor = (Color)myColors[color2];
+            Tile21.BackgroundColor = (Color)myColors[color2];
+            Tile22.BackgroundColor = (Color)myColors[color2];
+        }
+        else if (pattern > 3)
+        {
+            int color = rnd.Next(0, myColors.Count);  // creates a number between 0 and count
+            int color2 = rnd.Next(0, myColors.Count);
+            Tile00.BackgroundColor = (Color)myColors[color2];
+            Tile01.BackgroundColor = (Color)myColors[color];
+            Tile02.BackgroundColor = (Color)myColors[color2];
+            Tile10.BackgroundColor = (Color)myColors[color];
+            Tile11.BackgroundColor = (Color)myColors[color];
+            Tile12.BackgroundColor = (Color)myColors[color];
+            Tile20.BackgroundColor = (Color)myColors[color2];
+            Tile21.BackgroundColor = (Color)myColors[color];
+            Tile22.BackgroundColor = (Color)myColors[color2];
+        }
+        else
+        {
+            int color = rnd.Next(0, myColors.Count);  // creates a number between 0 and count
+            int color2 = rnd.Next(0, myColors.Count);
+            Tile00.BackgroundColor = (Color)myColors[color];
+            Tile01.BackgroundColor = (Color)myColors[color2];
+            Tile02.BackgroundColor = (Color)myColors[color];
+            Tile10.BackgroundColor = (Color)myColors[color2];
+            Tile11.BackgroundColor = (Color)myColors[color];
+            Tile12.BackgroundColor = (Color)myColors[color2];
+            Tile20.BackgroundColor = (Color)myColors[color];
+            Tile21.BackgroundColor = (Color)myColors[color2];
+            Tile22.BackgroundColor = (Color)myColors[color];
+        }
+        
+    }
+
+    //Make a list of usable colors
+    private void initColors()
+    {
+        myColors = new ArrayList();
+        myColors.Add(Colors.Red);
+        myColors.Add(Colors.Green);
+        myColors.Add(Colors.SkyBlue);
+        myColors.Add(Colors.Aqua);
+        myColors.Add(Colors.LightCoral);
+        myColors.Add(Colors.RosyBrown);
+        myColors.Add(Colors.Violet);
+        myColors.Add(Colors.LightGray);
+        myColors.Add(Colors.Gold);
     }
 
 }
