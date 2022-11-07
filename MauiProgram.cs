@@ -5,8 +5,8 @@
  * Name: Benjamin Wastart and Alex Rodriguez
  * Date: Nov 7, 2022
  * Description: A single page application of TicTacToe.
- * Bugs:
- * Reflection: The most important bit ...
+ * Bugs: Doesn't like playing in windows machine.
+ * Reflection: This was an easier lab other than having to keep making new forks.
  * 
  */
 
