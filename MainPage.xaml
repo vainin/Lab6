@@ -32,7 +32,7 @@
 
             </Grid>
             <Label  Text=""  VerticalOptions="Center" FontSize="12"/>
-            <Button HeightRequest = "100" WidthRequest="200" BackgroundColor="SkyBlue"  x:Name="Reset" Text="Reset" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="HandleResetClick" FontSize="24" Padding="20"/>
+            <Button HeightRequest = "100" WidthRequest="200" BackgroundColor="LightSteelBlue"  x:Name="Reset" Text="Reset" HorizontalOptions="Center"  VerticalOptions="Center" Clicked="HandleResetClick" FontSize="24" Padding="20"/>
 
 
         </VerticalStackLayout>
