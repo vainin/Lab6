@@ -113,6 +113,7 @@ public partial class MainPage : ContentPage
     private void ResetGame()//object sender, EventArgs e)
     {
         ticTacToe.ResetGame();
+        RandomColor();
         Tile00.Text = "";
         Tile01.Text = "";
         Tile02.Text = "";
@@ -128,7 +129,7 @@ public partial class MainPage : ContentPage
     private void HandleResetClick(object sender, EventArgs e)
     {
         ResetGame();
-        RandomColor();
+        
     }
 
     private void RandomColor()
